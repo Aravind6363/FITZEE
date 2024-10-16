@@ -1,0 +1,89 @@
+/* Hidden FITZEE */
+.hidden-fitz {
+  display: none;
+}
+
+.hidden-fitz.active {
+  display: inline-block;
+}
+
+/* General Styles */
+body {
+  background-color: rgba(251, 244, 241, 0.605);
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  background-color: rgb(2, 2, 2);
+  padding: 15px 20px;
+  text-align: center;
+  color: white; /* Changed text color for better contrast */
+}
+
+/* Navbar Styling */
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 20px; /* Space between the nav items */
+}
+
+.navbar-nav li {
+  display: inline;
+}
+
+.navbar-nav a {
+  color: black;
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: rgb(236, 228, 231);
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.navbar-nav a:hover {
+  background-color: rgb(212, 39, 129); /* Darker shade on hover */
+}
+
+/* Main Content */
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+.fitz-box {
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 15px auto;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.fitz-box h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.fitz-box p {
+  margin: 5px 0;
+  color: #666;
+}
+
+/* Footer */
+footer {
+  background-color: rgb(246, 238, 241);
+  color: black;
+  text-align: center;
+  padding: 0px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
