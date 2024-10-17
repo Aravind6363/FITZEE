@@ -18,13 +18,7 @@ module.exports.homelist = function(req, res) {
           rating: 4,
           facilities: ['Cardiovascular', 'Strength Training', 'Functional Training','Personal Training and Support Services','Locker Rooms and Showers','Outdoor Facilities'],
           distance: '20km'
-      }, {
-          name: 'Titan Strength',
-          address: 'Secunderabad , Hyderabad',
-          rating: 4,
-          facilities: ['Cardiovascular', 'Strength Training', 'Functional Training','Personal Training and Support Services','Locker Rooms and Showers','Outdoor Facilities'],
-          distance: '200km'
-  }]
+      }]
 });
 };
 module.exports.locationInfo = function(req, res){
@@ -32,9 +26,6 @@ module.exports.locationInfo = function(req, res){
   };
 module.exports.locationInfo1 = function(req, res){
     res.render('locations-info2', { title: 'LocationInfo1' });
-  };
-module.exports.locationInfo2 = function(req, res){
-    res.render('locations-info3', { title: 'LocationInfo2' });
   };
 module.exports.addReview = function(req, res){
     res.render('location-review', { title: 'ADD REVIEW' });

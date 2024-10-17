@@ -9,7 +9,6 @@ exports.signin = function(req, res) {
 router.get('/', ctrlLocations.homelist);
 router.get('/locations', ctrlLocations.locationInfo);
 router.get('/location1', ctrlLocations.locationInfo1);
-router.get('/location2', ctrlLocations.locationInfo2);
 router.get('/location/review/new', ctrlLocations.addReview);
 router.get('/about', ctrlothers.about);
 router.get('/signin', ctrlmain.signin)

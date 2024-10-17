@@ -1,45 +1,85 @@
 doctype html
 html
   head
-    meta(name='viewport', content='width=device-width', initial-scale=1.0)
-
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title= title
-  
     link(rel='stylesheet', href='/public/stylesheets')
     link(rel='stylesheet', href='/style.css')
 
   body
     .container
-      // Move  title and tagline to the top
+      // Move title and tagline to the top
       h1 FITZEE
       p SWEAT TODAY SHINE TOMORROW 
 
-    // Navbar comes below the title and tagline
-    .navbar.navbar-default.navbar-fixed-top
-      .container
-        .navbar-header
-          a.navbar-brand(href='/') 
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-        #navbar-main.navbar-collapse.collapse
-          ul.nav.navbar-nav
-          
-            li 
-              a(href='/about/') <b> ABOUT  </b>
-            li 
-              a(href='/signin') <b> SIGNIN </b>
-            li 
-              a(href='/review') <b> Add REVIEW </b>
-            li
-              a(href='/') <b> DASHBOARD </b> 
+      // Navbar comes below the title and tagline
+      .navbar.navbar-default.navbar-fixed-top
+        .container
+          .navbar-header
+            a.navbar-brand(href='/') 
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          #navbar-main.navbar-collapse.collapse
+            ul.nav.navbar-nav
+              li 
+                a(href='/about/') <b> ABOUT </b>
+              li 
+                a(href='/signin') <b> SIGNIN </b>
+              li 
+                a(href='/review') <b> Add REVIEW </b>
+              li
+                a(href='/') <b> DASHBOARD </b> 
+
     .container
       block content
+      
+      // BMI Calculator Section
+      h2 BMI Calculator
+      form#bmiForm
+        .form-group
+          label(for='weight') Enter your weight (kg):
+          input#weight.form-control(type='number', placeholder='Weight in kg', required)
+        .form-group
+          label(for='height') Enter your height (cm):
+          input#height.form-control(type='number', placeholder='Height in cm', required)
+        button.btn.btn-primary(type='button', onclick='calculateBMI()') Calculate BMI
+        p#bmiResult
+
       footer
         .row
           .col-xs-12
             small &copy; @AIML-C FITZEE Application 2023
 
-  script(src='/javascripts/jquery-1.11.1.min.js')
-  script(src='/javascripts/bootstrap.min.js')
+    // JavaScript to calculate BMI
+    script(src='/javascripts/jquery-1.11.1.min.js')
+    script(src='/javascripts/bootstrap.min.js')
+    script.
+      function calculateBMI() {
+        var weight = document.getElementById('weight').value;
+        var height = document.getElementById('height').value;
+
+        if (weight > 0 && height > 0) {
+          // Convert height from cm to meters
+          var heightInMeters = height / 100;
+          var bmi = weight / (heightInMeters * heightInMeters);
+          var bmiRounded = bmi.toFixed(2);
+
+          var resultText = 'Your BMI is ' + bmiRounded + ': ';
+          
+          if (bmi < 18.5) {
+            resultText += 'Underweight';
+          } else if (bmi >= 18.5 && bmi <= 24.9) {
+            resultText += 'Normal weight';
+          } else if (bmi >= 25 && bmi <= 29.9) {
+            resultText += 'Overweight';
+          } else {
+            resultText += 'Obese';
+          }
+
+          document.getElementById('bmiResult').textContent = resultText;
+        } else {
+          document.getElementById('bmiResult').textContent = 'Please enter valid values for both weight and height.';
+        }
+      }
