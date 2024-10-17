@@ -1,36 +1,27 @@
-/* Hidden FITZEE */
-.hidden-fitz {
-  display: none;
-}
-
-.hidden-fitz.active {
-  display: inline-block;
-}
-
 /* General Styles */
 body {
-  background-color:lightslategrey;
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
+  background-color: #f3f5f7; /* Light background color */
+  font-family: 'Arial', sans-serif; /* General font */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
 }
 
-/* Header */
+/* Header Styles */
 header {
-  background-color: rgb(2, 2, 2);
-  padding: 15px 20px;
-  text-align: center;
-  color: white; /* Changed text color for better contrast */
+  background-color: #000; /* Dark background for header */
+  padding: 15px 20px; /* Padding */
+  text-align: center; /* Center text alignment */
+  color: #fff; /* White text for contrast */
 }
 
 /* Navbar Styling */
 .navbar-nav {
   display: flex;
   list-style: none;
-  justify-content: center;
+  justify-content: flex-start; /* Align items to the left */
   margin: 0;
   padding: 0;
-  gap: 20px; /* Space between the nav items */
+  gap: 20px; /* Space between nav items */
 }
 
 .navbar-nav li {
@@ -38,16 +29,16 @@ header {
 }
 
 .navbar-nav a {
-  color: black;
+  color: #000;
   text-decoration: none;
   padding: 10px 15px;
-  background-color: rgb(236, 228, 231);
+  background-color: #f0f0f0; /* Light background for nav links */
   border-radius: 5px;
   transition: background-color 0.3s;
 }
 
 .navbar-nav a:hover {
-  background-color: lavenderblush; /* Darker shade on hover */
+  background-color: #e0e0e0; /* Change color on hover */
 }
 
 /* Main Content */
@@ -56,34 +47,103 @@ header {
   text-align: center;
 }
 
-.fitz-box {
-  background-color: #ccc;
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin: 15px auto;
-  width: 80%;
-  max-width: 600px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+/* Form Styles */
+form {
+  max-width: 400px; /* Set a max width for form */
+  margin: 20px auto; /* Center the form */
+  padding: 20px; /* Padding inside the form */
+  background-color: #fff; /* Form background */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
 }
 
-.fitz-box h2 {
-  margin-top: 0;
-  color: #333;
+/* Input Fields */
+input[type="number"] {
+  width: 100%; /* Full width */
+  padding: 10px; /* Padding inside input */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  transition: border-color 0.3s ease; /* Smooth border transition */
 }
 
-.fitz-box p {
-  margin: 5px 0;
-  color: #666;
+input[type="number"]:focus {
+  border-color: #007bff; /* Border color on focus */
+  outline: none; /* Remove default outline */
 }
 
-/* Footer */
+/* Button Styles */
+button[type="submit"] {
+  width: 100%; /* Full width button */
+  padding: 10px; /* Padding */
+  background-color: #007bff; /* Button background */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Footer Styles */
 footer {
-  background-color: rgb(246, 238, 241);
-  color: black;
-  text-align: center;
-  padding: 0px;
+  background-color: #f0f0f0; /* Footer background */
+  color: #000; /* Footer text color */
+  text-align: center; /* Center align footer text */
+  padding: 10px 0; /* Footer padding */
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100%; /* Full width */
+}
+
+/* Additional Styles (as requested) */
+.about-button {
+  background-color: #ff9933; /* Rich orange color */
+  color: #fff;
+}
+
+.about-button:hover {
+  background-color: #ff6600;
+}
+
+/* Dashboard-Specific Styles */
+.dashboard-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.dashboard-nav {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard-nav li {
+  margin-bottom: 10px;
+}
+
+.dashboard-nav a {
+  display: block;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.dashboard-nav a:hover {
+  background-color: #e0e0e0;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.dashboard-widget {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
 }

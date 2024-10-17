@@ -5,7 +5,7 @@ html
     title= title
     link(rel='stylesheet', href='/public/stylesheets')
     link(rel='stylesheet', href='/style.css')
-
+   
   body
     .container
       // Move title and tagline to the top
@@ -34,52 +34,11 @@ html
 
     .container
       block content
-      
-      // BMI Calculator Section
-      h2 BMI Calculator
-      form#bmiForm
-        .form-group
-          label(for='weight') Enter your weight (kg):
-          input#weight.form-control(type='number', placeholder='Weight in kg', required)
-        .form-group
-          label(for='height') Enter your height (cm):
-          input#height.form-control(type='number', placeholder='Height in cm', required)
-        button.btn.btn-primary(type='button', onclick='calculateBMI()') Calculate BMI
-        p#bmiResult
 
       footer
         .row
           .col-xs-12
             small &copy; @AIML-C FITZEE Application 2023
 
-    // JavaScript to calculate BMI
     script(src='/javascripts/jquery-1.11.1.min.js')
     script(src='/javascripts/bootstrap.min.js')
-    script.
-      function calculateBMI() {
-        var weight = document.getElementById('weight').value;
-        var height = document.getElementById('height').value;
-
-        if (weight > 0 && height > 0) {
-          // Convert height from cm to meters
-          var heightInMeters = height / 100;
-          var bmi = weight / (heightInMeters * heightInMeters);
-          var bmiRounded = bmi.toFixed(2);
-
-          var resultText = 'Your BMI is ' + bmiRounded + ': ';
-          
-          if (bmi < 18.5) {
-            resultText += 'Underweight';
-          } else if (bmi >= 18.5 && bmi <= 24.9) {
-            resultText += 'Normal weight';
-          } else if (bmi >= 25 && bmi <= 29.9) {
-            resultText += 'Overweight';
-          } else {
-            resultText += 'Obese';
-          }
-
-          document.getElementById('bmiResult').textContent = resultText;
-        } else {
-          document.getElementById('bmiResult').textContent = 'Please enter valid values for both weight and height.';
-        }
-      }
