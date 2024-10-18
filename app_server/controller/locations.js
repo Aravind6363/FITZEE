@@ -2,57 +2,46 @@
 
 module.exports.homelist = function(req, res) {
   res.render('locations-list', {
-      title: 'FITZEE',
+      title: 'EVENT MANAGEMENT',
       pageHeader: {
-          title: 'DASHBOARD',
+          title: 'EVENT DETAILS',
       },
-      bmi: null,        // Initialize BMI value
-      dietPlan: null,   // Initialize diet plan
+      eventMessage: null  // Initialize message for event creation
   });
 };
 
-module.exports.calculateBMI = function(req, res) {
-  const { weight, height } = req.body;
+module.exports.createEvent = function(req, res) {
+  const { eventTitle, eventDate, eventVenue } = req.body;
 
-  // Check if weight and height are provided and valid
-  if (!weight || !height || weight <= 0 || height <= 0) {
+  // Check if all event details are provided
+  if (!eventTitle || !eventDate || !eventVenue) {
     return res.render('locations-list', {
-      title: 'FITZEE',
+      title: 'EVENT MANAGEMENT',
       pageHeader: {
-          title: 'DASHBOARD',
+          title: 'EVENT DETAILS',
       },
-      bmi: null,
-      dietPlan: "Please enter valid weight and height values.", // Error message for invalid inputs
+      eventMessage: "Please provide all event details."  // Error message for missing inputs
     });
   }
 
-  const bmiValue = (weight / ((height / 100) ** 2)).toFixed(2); // Calculate BMI
-  const dietPlan = getDietPlan(bmiValue); // Function to get diet plan based on BMI
+  // You can save event details to a database here (this is just an example response)
+  const eventDetails = {
+    title: eventTitle,
+    date: eventDate,
+    venue: eventVenue
+  };
 
   res.render('locations-list', {
-      title: 'FITZEE',
+      title: 'EVENT MANAGEMENT',
       pageHeader: {
-          title: 'DASHBOARD',
+          title: 'EVENT DETAILS',
       },
-      bmi: bmiValue,
-      dietPlan: dietPlan,
+      eventMessage: `Event "${eventDetails.title}" created successfully on ${eventDetails.date} at ${eventDetails.venue}.`
   });
 };
 
-function getDietPlan(bmi) {
-  if (bmi < 18.5) {
-      return "High-protein foods, increase calorie intake.";
-  } else if (bmi < 24.9) {
-      return "Balanced diet with a variety of foods.";
-  } else if (bmi < 29.9) {
-      return "Portion control, nutritious foods.";
-  } else {
-      return "Structured diet plan with reduced caloric intake.";
-  }
-}
-
 module.exports.locationInfo = function(req, res) {
-  res.render('locations-info1', { title: 'LocationInfo' });
+  res.render('layout', { title: 'LocationInfo' });
 };
 
 module.exports.locationInfo1 = function(req, res) {

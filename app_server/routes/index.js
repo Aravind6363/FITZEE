@@ -9,9 +9,9 @@ exports.signin = function(req, res) {
     res.render('signin', { title: 'Sign In' }); // Ensure 'signin' matches your Pug file name
 };
 
-// Dashboard route
-router.get('/', ctrlLocations.homelist); // Redirect to the dashboard
-router.post('/calculate', ctrlLocations.calculateBMI); // Handle BMI calculation
+// Dashboard route (Updated)
+router.get('/', ctrlLocations.homelist); // Redirect to the dashboard (homepage)
+router.post('/create-event', ctrlLocations.createEvent); // Handle event creation (Updated route for event creation)
 
 // Location information routes
 router.get('/locations', ctrlLocations.locationInfo);
